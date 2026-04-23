@@ -54,3 +54,40 @@ typedef struct {
 
 
 //Anagoniste
+
+typedef struct {
+    int PV;
+    int degats;
+    int regard_petrifiant; //ca va bloquer le protagoniste 
+    int vivant;
+} Basilic; //son pointnfaible Bouclier réfléchissant
+
+
+typedef struct {
+int PV;
+int degats;
+int insensiblearme; // 1 = immunisé aux armes classique
+int vaincu;
+} Zombie; //faiblesse torche 
+
+
+
+typedef struct {
+    int PV;
+    int degats;
+    int armure;   
+    int vaincu;
+} Troll;  // faiblesse Hache pierre
+
+typedef struct {
+int points_de_vie;
+int degats;
+int vol;       //1 = en vol (insensible aux armes au sol)sinon 0
+int vaincu;
+} Harpie; //faiblesse arc long
+
+
+
+
+
+
