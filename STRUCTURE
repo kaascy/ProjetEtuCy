@@ -1,8 +1,13 @@
 //METRE bibliotheque main ou ici
 
+
+//Protagoniste
+
+
+
 typedef struct {
     char nom[TAILLE_NOM];  
-    int  points_de_vie;     
+    int  PV;     //pts de vie 
     int  degats;        
     int  defense;
     int  arme_active;      
@@ -11,3 +16,41 @@ typedef struct {
     int  est_vivant;    // pareil 1 ou 0   Avec boucle tt ca
 } Guerrier;
 
+
+typedef struct {
+    char nom[TAILLE_NOM];      
+    int  PV;        
+    int  degats;              
+    int  vitesse;         
+    int  arme_active;        
+    int  a_coffre;             // 1 0 si coffre trouver
+    int  a_baton_familiers;    //1 0 mm principe
+    int  est_vivant;           //pareil 
+} Ranger;
+
+
+typedef struct {
+    char nom[TAILLE_NOM];  
+    int  PV;    
+    int  degats;           
+    int  mana;             
+    int  arme_active;      
+    int  a_coffre;         
+    int  a_grimoire;      // grimoir interdit c’est 1
+    int  est_vivant;        
+} Magicien;
+
+
+typedef struct {
+    char nom[TAILLE_NOM];  
+    int  points_de_vie;    
+    int  degats;     
+    int  discretion;       
+    int  arme_active;      
+    int  a_coffre;         
+    int  a_dague_;  // si il a dague sommeil
+    int  est_vivant;       
+    } Voleur; 
+
+
+//Anagoniste
