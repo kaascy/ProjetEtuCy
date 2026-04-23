@@ -1,1 +1,13 @@
+//METRE bibliotheque main ou ici
+
+typedef struct {
+    char nom[TAILLE_NOM];  
+    int  points_de_vie;     
+    int  degats;        
+    int  defense;
+    int  arme_active;      
+    int  a_coffre;    //ici on mettra 1 0si trouve un coffre
+    int  a_epee_de_feu;    //ici on métra 1 ou 0 si il la ou pas
+    int  est_vivant;    // pareil 1 ou 0   Avec boucle tt ca
+} Guerrier;
 
