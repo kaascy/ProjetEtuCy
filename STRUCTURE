@@ -87,6 +87,16 @@ int vaincu;
 } Harpie; //faiblesse arc long
 
 
+//Cartes 
+typedef struct {
+    int type;       // 0=monstre 1=coffre 2=arme 3=portail 4=totem
+    int variante;  // si monstre : 0=basilic 1=zombie 2=troll 3=harpie
+                    // si arme    : 0=épée 1=bâton 2=grimoire 3=dague
+    int visible;    // 1 = visible, 0 = on voit pas 
+} Carte;
+
+
+
 
 
 
