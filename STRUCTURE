@@ -87,6 +87,14 @@ int vaincu;
 } Harpie; //faiblesse arc long
 
 
+
+
+
+
+
+
+
+
 //Cartes 
 typedef struct {
     int type;       // 0=monstre 1=coffre 2=arme 3=portail 4=totem
@@ -95,6 +103,21 @@ typedef struct {
     int visible;    // 1 = visible, 0 = on voit pas 
 } Carte;
 
+
+
+
+
+
+
+//MAPS 
+typedef struct {
+    Carte grille[5][5]; // on est sur du 25 pr le labyrinte
+} Plateau;
+
+typedef struct {
+    int ligne;   // ici dire que 0<ligne<4 prsk 01234=5
+    int colonne; // pareil 0<colone<4
+} Position;
 
 
 
