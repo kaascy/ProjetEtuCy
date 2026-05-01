@@ -15,4 +15,9 @@ void deck_init(Deck *paquet) {
 } else {
     nb_exemplaires = valeur_carte;
 }
-
+for (int exemplaire = 0; exemplaire < nb_exemplaires; exemplaire++) {
+            paquet->cartes[paquet->taille].type   = NUM;
+            paquet->cartes[paquet->taille].valeur = valeur_carte;
+            paquet->taille++;
+        }
+    }
