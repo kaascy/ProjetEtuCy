@@ -1,126 +1,23 @@
-//METRE bibliotheque main ou ici
 
 
-//Protagoniste
+// Type de carte //
+
+//enum est permet choix exclusif dans nos diff carte //
+  typedef enum {
+  NUM;    //0 a 12       //
+  BONUS_MULT;//multiplie le score //
+  BONUS_ADD;  //ajoute des points        //
+  } TypeCarte;
 
 
-
+//Carte 
 typedef struct {
-    char nom[TAILLE_NOM];  
-    int  PV;     //pts de vie 
-    int  degats;        
-    int  defense;
-    int  arme_active;      
-    int  a_coffre;    //ici on mettra 1 0si trouve un coffre
-    int  a_epee_de_feu;    //ici on métra 1 ou 0 si il la ou pas
-    int  est_vivant;    // pareil 1 ou 0   Avec boucle tt ca
-} Guerrier;
+  TypeCarte type;   // Categorie de la carte (NUM, BONUS_MULT, BONUS_ADD) //
+  int       valeur; // numero de la carte      //                  
+  } Carte;
 
-
+//paquets Deck
 typedef struct {
-    char nom[TAILLE_NOM];      
-    int  PV;        
-    int  degats;              
-    int  vitesse;         
-    int  arme_active;        
-    int  a_coffre;             // 1 0 si coffre trouver
-    int  a_baton_familiers;    //1 0 mm principe
-    int  est_vivant;           //pareil 
-} Ranger;
-
-
-typedef struct {
-    char nom[TAILLE_NOM];  
-    int  PV;    
-    int  degats;           
-    int  mana;             
-    int  arme_active;      
-    int  a_coffre;         
-    int  a_grimoire;      // grimoir interdit c’est 1
-    int  est_vivant;        
-} Magicien;
-
-
-typedef struct {
-    char nom[TAILLE_NOM];  
-    int  points_de_vie;    
-    int  degats;     
-    int  discretion;       
-    int  arme_active;      
-    int  a_coffre;         
-    int  a_dague_;  // si il a dague sommeil
-    int  est_vivant;       
-    } Voleur; 
-
-
-//Anagoniste
-
-typedef struct {
-    int PV;
-    int degats;
-    int regard_petrifiant; //ca va bloquer le protagoniste 
-    int vivant;
-} Basilic; //son pointnfaible Bouclier réfléchissant
-
-
-typedef struct {
-int PV;
-int degats;
-int insensiblearme; // 1 = immunisé aux armes classique
-int vaincu;
-} Zombie; //faiblesse torche 
-
-
-
-typedef struct {
-    int PV;
-    int degats;
-    int armure;   
-    int vaincu;
-} Troll;  // faiblesse Hache pierre
-
-typedef struct {
-int points_de_vie;
-int degats;
-int vol;       //1 = en vol (insensible aux armes au sol)sinon 0
-int vaincu;
-} Harpie; //faiblesse arc long
-
-
-
-
-
-
-
-
-
-
-//Cartes 
-typedef struct {
-    int type;       // 0=monstre 1=coffre 2=arme 3=portail 4=totem
-    int variante;  // si monstre : 0=basilic 1=zombie 2=troll 3=harpie
-                    // si arme    : 0=épée 1=bâton 2=grimoire 3=dague
-    int visible;    // 1 = visible, 0 = on voit pas 
-} Carte;
-
-
-
-
-
-
-
-//MAPS 
-typedef struct {
-    Carte grille[5][5]; // on est sur du 25 pr le labyrinte
-} Plateau;
-
-typedef struct {
-    int ligne;   // ici dire que 0<ligne<4 prsk 01234=5
-    int colonne; // pareil 0<colone<4
-} Position;
-
-
-
-
-
-
+Carte cartes[TAILLE_PAQUET]; //  contenant toutes les cartes //
+int   taille;                //Nombre de cartes encore disponible //
+} Deck;
