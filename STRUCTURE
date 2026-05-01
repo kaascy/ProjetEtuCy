@@ -7,9 +7,9 @@
 
 //enum est permet choix exclusif dans nos diff carte //
   typedef enum {
-  NUM;    //0 a 12       //
-  BONUS_MULT;//multiplie le score //
-  BONUS_ADD;  //ajoute des points        //
+  NUM,  //0 a 12       //
+  BONUS_MULT, //multiplie le score //
+  BONUS_ADD  //ajoute des points        //
   } TypeCarte;
 
 
