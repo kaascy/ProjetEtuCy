@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include "deck.h"
+
+// deck init deck_init
+ Remplit le paquet 85 cartes :
+(79 cartes numerotees)
+ (6 cartes bonus) //
+
+
+
