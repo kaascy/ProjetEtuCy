@@ -86,3 +86,14 @@ void deck_print(const Deck *paquet) {
 }
 
 
+//Deck empty retourn 1 ou 0 si deck vide//
+int deck_is_empty(const Deck *paquet) {
+    return paquet->taille == 0;
+}
+
+// Deck size retourn le nombre de carte encore presentes//
+
+int deck_size(const Deck *paquet) {
+    return paquet->taille;
+}
+
