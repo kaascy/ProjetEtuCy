@@ -47,7 +47,7 @@ typedef enum {
   MANCHE_GAGNEE      // Le joueur a 7 cartes differentes donc +15 pts  //
   } EtatManche;
 
-#endif /* STRUCTURES_H */
+#endif //STRUCTURES_H //
 
 
 
