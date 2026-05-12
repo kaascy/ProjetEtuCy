@@ -1,99 +1,87 @@
 #include <stdio.h>
 #include “deck.h”
-#include “../utils/random.h” //le troisième ?//
+#include “../utils/random.h”
 
-// deck init deck_init
- Remplit le paquet 85 cartes :
-(79 cartes numerotees)
- (6 cartes bonus) //
+void deck_init(Deck *deck) {
+deck->size = 0;
 
-void deck_init(Deck *paquet) {
-    paquet->taille = 0;
-    for (int valeur_carte = 0; valeur_carte <= 12; valeur_carte++) {
-        int nb_exemplaires;
- if (valeur_carte <= 1) {
-    nb_exemplaires = 1;
-}   else {
-    nb_exemplaires = valeur_carte;
-}
-   for (int exemplaire = 0; exemplaire < nb_exemplaires; exemplaire++) {
-            paquet->cartes[paquet->taille].type   = NUM;
-            paquet->cartes[paquet->taille].valeur = valeur_carte;
-            paquet->taille++;
-        }
-    }
-   //Carte bonus x2 //
-    paquet->cartes[paquet->taille].type   = BONUS_MULT;
-    paquet->cartes[paquet->taille].valeur = 2;
-    paquet->taille++;
 
-    //Cartes bonus add : +2, +4, +6, +8, +10 //
-    int montants_bonus_add[] = {2, 4, 6, 8, 10};
-    int nb_bonus_add         = 5;
+for (int card_value = 0; card_value <= 12; card_value++) {
+    int count = (card_value <= 1) ? 1 : card_value;
 
-    for (int indice_bonus = 0; indice_bonus < nb_bonus_add; indice_bonus++) {
-        paquet->cartes[paquet->taille].type   = BONUS_ADD;
-        paquet->cartes[paquet->taille].valeur = montants_bonus_add[indice_bonus];
-        paquet->taille++;
-    }
-   
-}
-
-//Deck shufle melanger aleatoir//
-void deck_shuffle(Deck *paquet) {
-    for (int position_courante = paquet->taille - 1; position_courante > 0; position_courante--) {
-        int position_echange = random_int(0, position_courante);
-
-        Carte carte_temp                      = paquet->cartes[position_courante];
-        paquet->cartes[position_courante]     = paquet->cartes[position_echange];
-        paquet->cartes[position_echange]      = carte_temp;
+    for (int copy = 0; copy < count; copy++) {
+        deck->cards[deck->size].type  = NUM;
+        deck->cards[deck->size].value = card_value;
+        deck->size++;
     }
 }
 
+deck->cards[deck->size].type  = BONUS_MULT;
+deck->cards[deck->size].value = 2;
+deck->size++;
 
+int bonus_add_values[] = {2, 4, 6, 8, 10};
+int nb_bonus_add       = 5;
 
-//Deck draw retourn et retourn au dessus//
-Carte deck_draw(Deck *paquet) {
-    Carte carte_vide = { NUM, -1 };
-
-        if (paquet->taille == 0) {
-        return carte_vide;
-    }
-
-    paquet->taille--;
-      return paquet->cartes[paquet->taille];
+for (int bonus_index = 0; bonus_index < nb_bonus_add; bonus_index++) {
+    deck->cards[deck->size].type  = BONUS_ADD;
+    deck->cards[deck->size].value = bonus_add_values[bonus_index];
+    deck->size++;
 }
 
 
-//Deck print affiche les cartes restantes//
-void deck_print(const Deck *paquet) {
-    printf(" Paquet (%d cartes restantes) \n", paquet->taille);
+}
 
-    for (int position = 0; position < paquet->taille; position++) {
-        const Carte *carte_courante = &paquet->cartes[position];
+void deck_shuffle(Deck *deck) {
+for (int current_pos = deck->size - 1; current_pos > 0; current_pos–) {
+int swap_pos = random_int(0, current_pos);
 
-           if (carte_courante->type == NUM) {
-            printf("  [%2d] NUM        valeur = %d\n",
-                   position, carte_courante->valeur);
-        }    else if (carte_courante->type == BONUS_MULT) {
-            printf("  [%2d] BONUS_MULT valeur = x %d\n",
-                   position, carte_courante->valeur);
-        }     else if (carte_courante->type == BONUS_ADD) {
-            printf("  [%2d] BONUS_ADD  valeur = + %d\n",
-                   position, carte_courante->valeur);
-        }
+
+    Card temp_card           = deck->cards[current_pos];
+    deck->cards[current_pos] = deck->cards[swap_pos];
+    deck->cards[swap_pos]    = temp_card;
+}
+
+
+}
+
+Card deck_draw(Deck *deck) {
+Card empty_card = { NUM, -1 };
+
+
+if (deck->size == 0) {
+    return empty_card;
+}
+
+deck->size--;
+return deck->cards[deck->size];
+
+
+}
+
+void deck_print(const Deck *deck) {
+printf(”=== Deck (%d cards remaining) ===\n”, deck->size);
+
+
+for (int position = 0; position < deck->size; position++) {
+    const Card *current_card = &deck->cards[position];
+
+    if (current_card->type == NUM) {
+        printf("  [%2d] NUM        value = %d\n", position, current_card->value);
+    } else if (current_card->type == BONUS_MULT) {
+        printf("  [%2d] BONUS_MULT value = x%d\n", position, current_card->value);
+    } else if (current_card->type == BONUS_ADD) {
+        printf("  [%2d] BONUS_ADD  value = +%d\n", position, current_card->value);
     }
 }
 
 
-//Deck empty retourn 1 ou 0 si deck vide//
-int deck_is_empty(const Deck *paquet) {
-    return paquet->taille == 0;
 }
 
-// Deck size retourn le nombre de carte encore presentes//
-
-int deck_size(const Deck *paquet) {
-    return paquet->taille;
+int deck_is_empty(const Deck *deck) {
+return deck->size == 0;
 }
 
+int deck_size(const Deck *deck) {
+return deck->size;
+}
