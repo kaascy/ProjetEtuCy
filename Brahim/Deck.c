@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include “deck.h”
-#include “../utils/random.h” le troisième ?
+#include “../utils/random.h” //le troisième ?//
 
 // deck init deck_init
  Remplit le paquet 85 cartes :
