@@ -10,7 +10,7 @@ void deck_init(Deck *deck);
 void deck_shuffle(Deck *deck);
 void game_run(Deck *deck, Joueur players[], int nbPlayers);
 
-int main(void)
+int main()
 {
     Deck deck;
     Joueur players[10];

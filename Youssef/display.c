@@ -38,7 +38,7 @@ void display_player(const Player *p)
     printf("  Score de la manche : " YELLOW "%d" RESET "\n", p->roundScore);
     printf("  Score total        : " YELLOW "%d" RESET "\n", p->totalScore);
 
-    /* Afficher les bonus seulement s'il y en a */
+    // Afficher les bonus seulement s'il y en a 
     if (p->bonusMulti > 1)
         printf("  Bonus actif : x%d\n", p->bonusMulti);
     if (p->bonusAdd > 0)
@@ -88,7 +88,7 @@ void display_winner(const Player players[], int nbPlayers)
     int i;
     int indexGagnant = 0;
 
-    /* Trouver le joueur avec le meilleur score */
+    // Trouver le joueur avec le meilleur score 
     for (i = 1; i < nbPlayers; i++) {
         if (players[i].totalScore > players[indexGagnant].totalScore)
             indexGagnant = i;
