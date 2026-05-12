@@ -5,7 +5,7 @@
 #include "save/save.h"
 #include "stats/stats.h"
 
-/* ces fonctions seront fournies par Brahim et Kais */
+
 void deck_init(Deck *deck);
 void deck_shuffle(Deck *deck);
 void game_run(Deck *deck, Joueur players[], int nbPlayers);
@@ -31,8 +31,7 @@ int main()
     for (i = 0; i < nbPlayers; i++) {
         printf("  Nom du joueur %d", i + 1);
         safe_input_string(nomJoueur, sizeof(nomJoueur), "");
-        // player_init sera fourni par Kais
-        // player_init(&players[i], nomJoueur);
+       
     }
 
     printf("\n  La partie commence ! Bonne chance.\n\n");
