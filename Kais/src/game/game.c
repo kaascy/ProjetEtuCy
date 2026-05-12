@@ -3,7 +3,7 @@
 #include "round.h"
 #include <stdio.h>
 
-/* je dois mettre en commun avec youssef */
+// je dois mettre en commun avec youssef //
 
 void game_run(Deck *deck, Player players[], int nbPlayers) {
     int game_over = 0;
