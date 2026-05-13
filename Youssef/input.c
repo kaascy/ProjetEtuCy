@@ -2,7 +2,7 @@
 #include <string.h>
 #include "input.h"
 
-// lit un entier entre min et max  
+// reads a number between min and max
 int safe_input_int(const char *prompt, int min, int max)
 {
     int valeur;
@@ -12,7 +12,7 @@ int safe_input_int(const char *prompt, int min, int max)
         printf("%s (entre %d et %d) : ", prompt, min, max);
         resultat = scanf("%d", &valeur);
 
-        // vider le buffer clavier apres chaque saisie
+        // clear the keyboard buffer after each input
         while (getchar() != '\n');
 
         if (resultat != 1) {
@@ -27,7 +27,7 @@ int safe_input_int(const char *prompt, int min, int max)
     }
 }
 
-// lit une chaine de caracteres et enleve le \n 
+// reads a string of characters and removes the \n
 void safe_input_string(char *buffer, int size, const char *prompt)
 {
     int longueur;
@@ -35,13 +35,13 @@ void safe_input_string(char *buffer, int size, const char *prompt)
     printf("%s : ", prompt);
     fgets(buffer, size, stdin);
 
-    // supprimer le retour a la ligne
+    // remove the line break
     longueur = strlen(buffer);
     if (longueur > 0 && buffer[longueur - 1] == '\n')
         buffer[longueur - 1] = '\0';
 }
 
-// pose une question oui/non
+// asks a yes/no question
 int safe_input_yes_no(const char *prompt)
 {
     char reponse[20];
@@ -62,7 +62,7 @@ int safe_input_yes_no(const char *prompt)
     }
 }
 
-// demande au joueur de piocher ou sortir
+// asks the player to draw or go out
 int safe_input_choice_pipick(const char *prompt)
 {
     (void)prompt;

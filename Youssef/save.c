@@ -2,7 +2,7 @@
 #include "save.h"
 #include "../ui/input.h"
  
-// enregistre les scores dans un fichier texte
+// saves the scores in a text file
 void save_scores_to_file(const Player players[], int nbPlayers)
 {
     char filename[100];
@@ -17,7 +17,7 @@ void save_scores_to_file(const Player players[], int nbPlayers)
         return;
     }
  
-    // format : NOM | SCORE_TOTAL | SCORE_MANCHE
+    // Format: NAME | TOTAL_SCORE | ROUND_SCORE
     for (i = 0; i < nbPlayers; i++) {
         fprintf(fichier, "%s | %d | %d\n",
                 players[i].name,
@@ -29,7 +29,7 @@ void save_scores_to_file(const Player players[], int nbPlayers)
     printf("  Scores sauvegardes dans '%s'.\n", filename);
 }
  
-// charge et affiche les scores depuis un fichier
+// loads and displays scores from a file
 void load_scores_from_file(const char *filename)
 {
     FILE *fichier;

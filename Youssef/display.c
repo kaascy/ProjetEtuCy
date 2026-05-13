@@ -8,7 +8,7 @@
 #define BOLD   "\033[1m"
 #define RESET  "\033[0m"
  
-// affiche une seule carte
+// displays 1 card
 void display_card(Card c)
 {
     if (c.type == NUM) {
@@ -20,7 +20,7 @@ void display_card(Card c)
     }
 }
  
-// affiche les infos d'un joueur
+// displays player's informations
 void display_player(const Player *p)
 {
     int i;
@@ -41,7 +41,7 @@ void display_player(const Player *p)
     printf("  Score total        : " YELLOW "%d" RESET "\n", p->totalScore);
 }
  
-// affiche l'etat global du jeu pour le joueur courant
+// displays the overall game status for the current player
 void display_game_status(const Player players[], int currentPlayer,
                          int nbPlayers, const Deck *deck)
 {
@@ -59,7 +59,7 @@ void display_game_status(const Player players[], int currentPlayer,
     printf("\n");
 }
  
-// affiche le bilan de fin de manche
+// displays the end-of-round results
 void display_round_summary(const Player players[], int nbPlayers)
 {
     int i;
@@ -80,13 +80,13 @@ void display_round_summary(const Player players[], int nbPlayers)
     printf("\n\n");
 }
  
-// affiche le gagnant final
+// displays the final winner
 void display_winner(const Player players[], int nbPlayers)
 {
     int i;
     int indexGagnant = 0;
  
-    // trouver le joueur avec le meilleur score
+    // find the player with the best score
     for (i = 1; i < nbPlayers; i++) {
         if (players[i].totalScore > players[indexGagnant].totalScore)
             indexGagnant = i;

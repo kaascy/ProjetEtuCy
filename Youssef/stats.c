@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "stats.h"
  
-// affiche le joueur avec le score total le plus eleve
+// displays the player with the highest total score
 void stats_display_best_player(const Player players[], int nbPlayers)
 {
     int i;
@@ -17,7 +17,7 @@ void stats_display_best_player(const Player players[], int nbPlayers)
            players[indexMeilleur].totalScore);
 }
  
-// affiche la moyenne des scores de tous les joueurs
+// displays the average score of all players
 void stats_display_average_scores(const Player players[], int nbPlayers)
 {
     int i;
@@ -31,7 +31,7 @@ void stats_display_average_scores(const Player players[], int nbPlayers)
     printf("  Moyenne des scores : %.2f\n", moyenne);
 }
  
-// affiche tous les scores en colonnes alignees
+// display all scores in aligned columns
 void stats_display_all_scores(const Player players[], int nbPlayers)
 {
     int i;

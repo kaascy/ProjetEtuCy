@@ -21,15 +21,15 @@ int main()
     printf("       Bienvenue dans FLIPTECH !\n");
     printf("  ====================================\n\n");
  
-    // initialiser et melanger le deck 
+    // initialize and shuffle the deck
     deck_init(&deck);
     deck_shuffle(&deck);
     printf("  Deck pret : %d cartes melangees.\n\n", deck.size);
  
-    // demander le nombre de joueurs
+    // ask for the number of players
     nbPlayers = safe_input_int("Combien de joueurs ?", 1, 10);
  
-    // demander le nom de chaque joueur et initialiser 
+    // ask for each player's name and initialize
     for (i = 0; i < nbPlayers; i++) {
         printf("  Nom du joueur %d", i + 1);
         safe_input_string(nomJoueur, sizeof(nomJoueur), "");
@@ -38,17 +38,17 @@ int main()
  
     printf("\n  La partie commence ! Bonne chance.\n\n");
  
-    // lancer la boucle de jeu 
+    // launch the game loop
     game_run(&deck, players, nbPlayers);
  
-    // afficher le gagnant
+    // show winner
     display_winner(players, nbPlayers);
  
-    // proposer de sauvegarder
+    // offer to save
     if (safe_input_yes_no("Voulez-vous enregistrer les scores ? (oui/non)"))
         save_scores_to_file(players, nbPlayers);
  
-    // proposer les statistiques
+    // propose the statistics
     if (safe_input_yes_no("Voulez-vous voir les statistiques ? (oui/non)")) {
         printf("\n  --- Statistiques ---\n");
         stats_display_best_player(players, nbPlayers);
