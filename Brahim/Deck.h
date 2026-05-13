@@ -22,11 +22,11 @@ int  size;
 typedef struct {
 char name[50];
 Card hand[20];
-int  hand_size;
-int  round_score;
-int  total_score;
-int  bonus_mult;
-int  bonus_add;
+int  handSize;
+int  roundScore;
+int  totalScore;
+int  bonusMult;
+int  bonusAdd;
 } Player;
 
 typedef enum {
