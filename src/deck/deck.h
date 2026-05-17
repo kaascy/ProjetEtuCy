@@ -19,22 +19,6 @@ Card cards[DECK_MAX_SIZE];
 int  size;
 } Deck;
 
-typedef struct {
-char name[50];
-Card hand[20];
-int  handSize;
-int  roundScore;
-int  totalScore;
-int  bonusMult;
-int  bonusAdd;
-} Player;
-
-typedef enum {
-ROUND_CONTINUE,
-ROUND_LOST,
-ROUND_WIN
-} RoundStatus;
-
 void deck_init(Deck *deck);
 void deck_shuffle(Deck *deck);
 Card deck_draw(Deck *deck);

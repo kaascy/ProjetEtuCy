@@ -1,7 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "deck.h"
+#include "../deck/deck.h"
 
 typedef struct {
     char name[50];

@@ -1,7 +1,7 @@
 #ifndef RULES_H
 #define RULES_H
 
-#include "player.h"
+#include "../player/player.h"
 
 typedef enum {
     ROUND_CONTINUE,
