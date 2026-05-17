@@ -43,6 +43,11 @@ void game_run(Deck *deck, Player players[], int nbPlayers)
                 // piocher une carte
                 Card c = deck_draw(deck);
 
+                // afficher la carte piochee immediatement
+                printf("  Carte piochee : ");
+                display_card(c);
+                printf("\n");
+
                 RoundStatus status = rules_apply_card(&players[i], c);
 
                 if (status == ROUND_LOST) {

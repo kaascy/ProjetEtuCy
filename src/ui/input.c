@@ -2,7 +2,7 @@
 #include <string.h>
 #include "input.h"
 
-// reads a number between min and max
+// lit un entier entre min et max, redemande si la saisie est invalide
 int safe_input_int(const char *prompt, int min, int max)
 {
     int valeur;
@@ -12,7 +12,7 @@ int safe_input_int(const char *prompt, int min, int max)
         printf("%s (entre %d et %d) : ", prompt, min, max);
         resultat = scanf("%d", &valeur);
 
-        // clear the keyboard buffer after each input
+        // vider le buffer clavier apres chaque saisie
         while (getchar() != '\n');
 
         if (resultat != 1) {
@@ -27,21 +27,32 @@ int safe_input_int(const char *prompt, int min, int max)
     }
 }
 
-// reads a string of characters and removes the \n
+// lit une chaine de caracteres et enleve le \n final
+// redemande si la chaine est vide
 void safe_input_string(char *buffer, int size, const char *prompt)
 {
     int longueur;
 
-    printf("%s : ", prompt);
-    fgets(buffer, size, stdin);
+    while (1) {
+        printf("%s : ", prompt);
+        fgets(buffer, size, stdin);
 
-    // remove the line break
-    longueur = strlen(buffer);
-    if (longueur > 0 && buffer[longueur - 1] == '\n')
-        buffer[longueur - 1] = '\0';
+        // supprimer le retour a la ligne laisse par fgets
+        longueur = strlen(buffer);
+        if (longueur > 0 && buffer[longueur - 1] == '\n')
+            buffer[longueur - 1] = '\0';
+
+        // redemander si le joueur a appuye sur entree sans rien taper
+        if (strlen(buffer) == 0) {
+            printf("  Erreur : veuillez entrer quelque chose.\n");
+            continue;
+        }
+
+        return;
+    }
 }
 
-// asks a yes/no question
+// pose une question oui/non, retourne 1 pour oui et 0 pour non
 int safe_input_yes_no(const char *prompt)
 {
     char reponse[20];
@@ -57,12 +68,12 @@ int safe_input_yes_no(const char *prompt)
             strcmp(reponse, "non") == 0 || strcmp(reponse, "NON") == 0)
             return 0;
 
-        
+        // ni oui ni non, on redemande
         printf("  Erreur : tapez 'oui' ou 'non'.\n");
     }
 }
 
-// asks the player to draw or go out
+// demande au joueur de piocher ou sortir, retourne 1 ou 2
 int safe_input_choice_pipick(const char *prompt)
 {
     (void)prompt;
