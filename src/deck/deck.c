@@ -33,7 +33,7 @@ for (int bonus_index = 0; bonus_index < nb_bonus_add; bonus_index++) {
 }
 
 void deck_shuffle(Deck *deck) {
-for (int current_pos = deck->size - 1; current_pos > 0; current_pos--) {
+for (int current_pos = deck->size - 1; current_pos > 0; current_pos–) {
 int swap_pos = random_int(0, current_pos);
 
 

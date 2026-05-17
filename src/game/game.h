@@ -1,8 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "../deck/deck.h"
-#include "../player/player.h"
+#include "deck.h"
+#include "player.h"
 
 void game_run(Deck *deck, Player players[], int nbPlayers);
 

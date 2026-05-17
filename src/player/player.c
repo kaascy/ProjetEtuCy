@@ -1,4 +1,4 @@
-#include "../player/player.h"
+#include "player.h"
 #include <string.h>
 
 void player_init(Player *p, const char *name) {
