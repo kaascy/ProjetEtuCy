@@ -29,10 +29,10 @@ void game_run(Deck *deck, Player players[], int nbPlayers)
 
                 tous_sortis = 0;
 
-                // afficher l'etat du jeu pour le joueur courant
+                // display the game status for the current player
                 display_game_status(players, i, nbPlayers, deck);
 
-                // demander piocher ou sortir
+                // ask pick or go out
                 int choice = safe_input_choice_pipick("");
 
                 if (choice == 2) {
@@ -40,10 +40,10 @@ void game_run(Deck *deck, Player players[], int nbPlayers)
                     continue;
                 }
 
-                // piocher une carte
+                // draw a card
                 Card c = deck_draw(deck);
 
-                // afficher la carte piochee immediatement
+                // display the drawn card 
                 printf("  Carte piochee : ");
                 display_card(c);
                 printf("\n");
@@ -61,20 +61,20 @@ void game_run(Deck *deck, Player players[], int nbPlayers)
                 }
             }
 
-            // si tout le monde est sorti la manche est terminee
+            // If everyone has left the round is over
             if (tous_sortis) round_running = 0;
         }
 
-        // calculer et ajouter les scores finaux
+        // calculate and add the final scores
         for (i = 0; i < nbPlayers; i++) {
             int final_score = rules_compute_round_score(&players[i]);
             players[i].totalScore += final_score;
         }
 
-        // afficher le resume de la manche
+        // display the round summary
         display_round_summary(players, nbPlayers);
 
-        // verifier si la partie est terminee
+        // check if the game is finished
         if (rules_is_game_over(players, nbPlayers))
             game_over = 1;
     }
