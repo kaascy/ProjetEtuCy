@@ -45,45 +45,16 @@ void display_player(const Player *p)
 void display_game_status(const Player players[], int currentPlayer,
                          int nbPlayers, const Deck *deck)
 {
-    int i, j;
-    int totalPicked[13] = {0};
-    int myPicked[13]    = {0};
-
-    for (i = 0; i < nbPlayers; i++) {
-        for (j = 0; j < players[i].handSize; j++) {
-            if (players[i].hand[j].type == NUM) {
-                int v = players[i].hand[j].value;
-                if (v >= 0 && v <= 12)
-                    totalPicked[v]++;
-            }
-        }
-    }
-
-    for (j = 0; j < players[currentPlayer].handSize; j++) {
-        if (players[currentPlayer].hand[j].type == NUM) {
-            int v = players[currentPlayer].hand[j].value;
-            if (v >= 0 && v <= 12)
-                myPicked[v]++;
-        }
-    }
-
+    int i;
+    (void)nbPlayers;
+ 
     printf("\n");
     for (i = 0; i < 50; i++) printf("-");
     printf("\n");
-
+ 
     printf(BOLD CYAN ">> Joueur actuel : %s <<\n" RESET, players[currentPlayer].name);
-    printf("   Cartes restantes dans la pioche : %d\n\n", deck->size);
-
-    printf(BOLD "  Valeur | Total piochees | Vous en avez\n" RESET);
-    printf("  --------|----------------|-------------\n");
-    for (i = 0; i <= 12; i++) {
-        if (myPicked[i] > 0)
-            printf(YELLOW "  %6d | %14d | %d\n" RESET, i, totalPicked[i], myPicked[i]);
-        else
-            printf("  %6d | %14d | %d\n", i, totalPicked[i], myPicked[i]);
-    }
-    printf("\n");
-
+    printf("   Cartes restantes dans la pioche : %d\n", deck->size);
+ 
     display_player(&players[currentPlayer]);
     printf("\n");
 }
