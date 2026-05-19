@@ -42,22 +42,18 @@ void display_player(const Player *p)
 }
  
 // displays the overall game status for the current player
-void display_game_status(const Player players[], int currentPlayer,
-                         int nbPlayers, const Deck *deck)
-{
-    int i;
-    (void)nbPlayers;
- 
-    printf("\n");
-    for (i = 0; i < 50; i++) printf("-");
-    printf("\n");
- 
-    printf(BOLD CYAN ">> Joueur actuel : %s <<\n" RESET, players[currentPlayer].name);
-    printf("   Cartes restantes dans la pioche : %d\n", deck->size);
- 
-    display_player(&players[currentPlayer]);
-    printf("\n");
-}
+void display_game_status(const Player players[], int currentPlayer, int nbPlayers, const Deck *deck) { 
+ int i; 
+ (void)nbPlayers;
+
+printf("\n"); 
+ for (i = 0; i < 50; i++) printf("-"); 
+ printf("\n");
+
+printf(BOLD CYAN ">> Joueur actuel : %s <<\n" RESET, players[currentPlayer].name); 
+printf(" Cartes restantes dans la pioche : %d\n", deck->size);
+
+display_player(&players[currentPlayer]); printf("\n"); }
  
 // displays the end-of-round results
 void display_round_summary(const Player players[], int nbPlayers)
