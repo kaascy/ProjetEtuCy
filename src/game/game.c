@@ -59,7 +59,7 @@ void game_run(Deck *deck, Player players[], int nbPlayers)
                 }
             }
 
-            // If everyone has left the round is over
+            // if everyone has left the round is over
             if (tous_sortis) round_running = 0;
         }
 
