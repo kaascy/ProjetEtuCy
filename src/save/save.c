@@ -17,7 +17,7 @@ void save_scores_to_file(const Player players[], int nbPlayers)
         return;
     }
  
-    // Format: NAME | TOTAL_SCORE | ROUND_SCORE
+    //  NAME | TOTAL_SCORE | ROUND_SCORE
     for (i = 0; i < nbPlayers; i++) {
         fprintf(fichier, "%s | %d | %d\n",
                 players[i].name,
