@@ -40,7 +40,7 @@ void safe_input_string(char *buffer, int size, const char *prompt)
         if (longueur > 0 && buffer[longueur - 1] == '\n')
             buffer[longueur - 1] = '\0';
 
-        // ask again if the player pressed enter without typing anything
+        // ask again if the player pressed enter without typing
         if (strlen(buffer) == 0) {
             printf("  Erreur : veuillez entrer quelque chose.\n");
             continue;
