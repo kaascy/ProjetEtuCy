@@ -29,7 +29,7 @@ void save_scores_to_file(const Player players[], int nbPlayers)
     printf("  Scores sauvegardes dans '%s'.\n", filename);
 }
  
-// loads and displays scores from a file
+// loads and displays scores from a file 
 void load_scores_from_file(const char *filename)
 {
     FILE *fichier;
