@@ -2,7 +2,7 @@
 #include <string.h>
 #include "input.h"
 
-// reads a number between min and max and asks if the input is invalid
+// reads a number between min and max 
 int safe_input_int(const char *prompt, int min, int max)
 {
     int valeur;
