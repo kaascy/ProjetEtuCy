@@ -66,7 +66,7 @@ int safe_input_yes_no(const char *prompt)
             strcmp(reponse, "non") == 0 || strcmp(reponse, "NON") == 0)
             return 0;
 
-        // Neither yes nor no we ask again.
+        // if the user types something else 
         printf("  Erreur : tapez 'oui' ou 'non'.\n");
     }
 }
