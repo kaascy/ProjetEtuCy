@@ -31,7 +31,7 @@ void stats_display_average_scores(const Player players[], int nbPlayers)
     printf("  Moyenne des scores : %.2f\n", moyenne);
 }
  
-// display all scores in aligned columns
+// display all scores 
 void stats_display_all_scores(const Player players[], int nbPlayers)
 {
     int i;
