@@ -102,7 +102,7 @@ void display_winner(const Player players[], int nbPlayers)
     int i;
     int indexGagnant = 0;
 
-    // find the player with the highest total score
+    // find the player with the highest total score 
     for (i = 1; i < nbPlayers; i++) {
         if (players[i].totalScore > players[indexGagnant].totalScore)
             indexGagnant = i;
