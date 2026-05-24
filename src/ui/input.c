@@ -12,7 +12,7 @@ int safe_input_int(const char *prompt, int min, int max)
         printf("%s (entre %d et %d) : ", prompt, min, max);
         resultat = scanf("%d", &valeur);
 
-        // clear the  buffer after each input
+        // clear the  buffer
         while (getchar() != '\n');
 
         if (resultat != 1) {
