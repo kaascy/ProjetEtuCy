@@ -24,7 +24,7 @@ void display_card(Card c)
 void display_player(const Player *p)
 {
     int i;
-
+    
     printf(BOLD "Joueur : %s\n" RESET, p->name);
 
     printf("  Cartes en main : ");
