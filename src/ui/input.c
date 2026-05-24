@@ -71,7 +71,7 @@ int safe_input_yes_no(const char *prompt)
     }
 }
 
-// asks the player to draw or go out
+// asks the player to draw or leave
 int safe_input_choice_pipick(void)
 {
     printf("Piocher (1) ou sortir (2) ?\n");
