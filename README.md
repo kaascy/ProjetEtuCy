@@ -17,8 +17,7 @@ mingw32-make  # Windows
 
 ## Fichiers
 
-- `rapport.pdf` → tout le contexte et le déroulement du projet
-- `projet.pdf` → ancienne consigne, à ne pas suivre à la lettre
+- `rapport.pdf` → le contexte et le déroulement du projet
 
 ## Équipe
 

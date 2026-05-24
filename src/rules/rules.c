@@ -7,6 +7,7 @@ RoundStatus rules_apply_card(Player *p, Card c) {
 
     if (c.type == NUM) {
         if (player_has_duplicate(p, c)) {
+            p->roundScore = 0;
             return ROUND_LOST;
         }
         player_add_card(p, c);

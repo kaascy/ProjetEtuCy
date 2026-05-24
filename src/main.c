@@ -8,6 +8,7 @@
 #include "ui/input.h"
 #include "save/save.h"
 #include "stats/stats.h"
+#include "utils/random.h"
  
 int main()
 {
@@ -20,7 +21,9 @@ int main()
     printf("\n  ====================================\n");
     printf("       Bienvenue dans FLIPTECH !\n");
     printf("  ====================================\n\n");
- 
+    
+    random_init();
+
     // initialize and shuffle the deck
     deck_init(&deck);
     deck_shuffle(&deck);

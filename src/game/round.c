@@ -15,7 +15,3 @@ int round_is_over(Player players[], int nbPlayers, int *winnerIndex) {
     }
     return 0;
 }
-
-void round_apply_bonus_winner(Player *winner) {
-    winner->totalScore += 15;
-}

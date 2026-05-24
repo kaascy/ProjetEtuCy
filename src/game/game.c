@@ -33,7 +33,7 @@ void game_run(Deck *deck, Player players[], int nbPlayers)
                 display_game_status(players, i, nbPlayers, deck);
 
                 // ask pick or go out
-                int choice = safe_input_choice_pipick("");
+                int choice = safe_input_choice_pipick();
 
                 if (choice == 2) {
                     out[i] = 1;
@@ -52,11 +52,9 @@ void game_run(Deck *deck, Player players[], int nbPlayers)
 
                 if (status == ROUND_LOST) {
                     printf("  Doublon ! %s perd la manche.\n", players[i].name);
-                    players[i].roundScore = 0;
                     out[i] = 1;
                 } else if (status == ROUND_OVER_WIN) {
                     printf("  7 cartes differentes ! %s gagne la manche.\n", players[i].name);
-                    round_apply_bonus_winner(&players[i]);
                     round_running = 0;
                 }
             }
