@@ -75,7 +75,7 @@ void display_game_status(const Player players[], int currentPlayer,
     printf("\n");
 }
 
-// display the round summary with scores
+// display the round summary with score
 void display_round_summary(const Player players[], int nbPlayers)
 {
     int i;
