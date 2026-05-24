@@ -2,7 +2,7 @@
 #include "save.h"
 #include "../ui/input.h"
  
-// saves the scores in a text file
+// save the scores in a text file
 void save_scores_to_file(const Player players[], int nbPlayers)
 {
     char filename[100];
