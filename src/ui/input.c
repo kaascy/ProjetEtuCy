@@ -50,7 +50,7 @@ void safe_input_string(char *buffer, int size, const char *prompt)
     }
 }
 
-// asks a yes/no question
+// yes or no question
 int safe_input_yes_no(const char *prompt)
 {
     char reponse[20];
