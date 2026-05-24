@@ -24,7 +24,7 @@ void display_card(Card c)
 void display_player(const Player *p)
 {
     int i;
-    
+
     printf(BOLD "Joueur : %s\n" RESET, p->name);
 
     printf("  Cartes en main : ");
@@ -41,7 +41,7 @@ void display_player(const Player *p)
     printf("  Score total        : " YELLOW "%d" RESET "\n", p->totalScore);
 }
 
-// display the current game state for the active player
+// display the current game state for the current player
 void display_game_status(const Player players[], int currentPlayer,
                          int nbPlayers, const Deck *deck)
 {
