@@ -55,7 +55,7 @@ void display_game_status(const Player players[], int currentPlayer,
     printf(BOLD CYAN ">> Joueur actuel : %s <<\n" RESET, players[currentPlayer].name);
     printf("   Cartes restantes dans la pioche : %d\n\n", deck->size);
 
-    // count cards already drawn by all players
+    // count cards drawn by all players
     for (i = 0; i < nbPlayers; i++) {
         for (j = 0; j < players[i].handSize; j++) {
             if (players[i].hand[j].type == NUM)
